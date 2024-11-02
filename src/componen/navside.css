@@ -1,0 +1,51 @@
+/* Sidebar */
+.sidebar {
+    background-color: #ffffff;
+    color: #03cbee;
+    height: 100vh;
+    width: 200px;
+    position: fixed;
+    left: 0;
+    top: 0;
+    transform: translateX(0); /* Tampilkan sidebar penuh di desktop */
+    transition: transform 0.3s ease;
+    z-index: 1000;
+}
+
+/* Tampilkan sidebar hanya pada tampilan desktop */
+@media (max-width: 768px) {
+    .sidebar {
+        transform: translateX(-100%);
+    }
+    .sidebar-mobile.is-active .sidebar {
+        transform: translateX(0);
+    }
+}
+
+/* Overlay hanya tampil pada tampilan mobile */
+.overlay {
+    display: none;
+}
+@media (max-width: 768px) {
+    .overlay.is-active {
+        display: block;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+}
+
+/* Gaya untuk menu-list */
+.menu-label, .menu-list a, .menu-list .button {
+    color: #090909;
+}
+
+.menu-list a:hover, .menu-list .button:hover {
+    background-color: #444;
+    color: #fff;
+    border-radius: 5px;
+}
